@@ -1,7 +1,7 @@
 #
 # Dockerfile for WordPress
 #
-FROM leonzhang77/alpine-php-mysql:0.31
+FROM appsvcorg/alpine-php-mysql:0.32
 MAINTAINER Azure App Service Container Images <appsvc-images@microsoft.com>
 
 # ========
@@ -44,8 +44,6 @@ RUN set -ex \
 	&& apk update \
 	&& apk upgrade \
 	&& rm -rf /var/cache/apk/*
-	
-RUN docker-php-ext-install pdo pdo_mysql pdo_pgsql
 	
 # =========
 # Configure
