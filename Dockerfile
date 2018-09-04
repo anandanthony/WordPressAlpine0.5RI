@@ -45,6 +45,10 @@ RUN set -ex \
 	&& apk upgrade \
 	&& rm -rf /var/cache/apk/*
 	
+RUN apk update; \
+    apk upgrade;
+RUN docker-php-ext-install mysqli
+	
 # =========
 # Configure
 # =========
