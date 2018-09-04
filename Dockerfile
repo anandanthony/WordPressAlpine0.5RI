@@ -45,9 +45,7 @@ RUN set -ex \
 	&& apk upgrade \
 	&& rm -rf /var/cache/apk/*
 	
-RUN apk update; \
-    apk upgrade;
-RUN docker-php-ext-install mysqli
+RUN docker-php-ext-install pdo pdo_mysql pdo_pgsql
 	
 # =========
 # Configure
