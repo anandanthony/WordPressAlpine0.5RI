@@ -33,13 +33,7 @@ RUN set -ex \
 	# --------
     && apk add --update redis \
     && apk add --update php7-redis \
-    && apk add --update zlib-dev
-
-# Configure PHP extensions
-RUN docker-php-ext-configure zip
-    
-# Build and install PHP extensions
-RUN docker-php-ext-install zip
+    && apk add --update zlib-dev \
     
 	# ------------	
 	# 2. wordpress
@@ -53,6 +47,11 @@ RUN docker-php-ext-install zip
 	&& apk upgrade \
 	&& rm -rf /var/cache/apk/*
 	
+# Configure PHP extensions
+RUN docker-php-ext-configure zip
+    
+# Build and install PHP extensions
+RUN docker-php-ext-install zip
 # =========
 # Configure
 # =========
