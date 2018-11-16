@@ -33,7 +33,7 @@ RUN set -ex \
 	# --------
     && apk add --update redis \
     && apk add --update php7-redis \
-    && apk add --update zlib1g-dev \
+    && apk add --update zlib-dev \
 	# ------------	
 	# 2. wordpress
 	# ------------
