@@ -47,6 +47,7 @@ RUN set -ex \
 	&& apk upgrade \
 	&& rm -rf /var/cache/apk/*
 	
+RUN apk --no-cache add zip
 # Configure PHP extensions
 RUN docker-php-ext-configure zip
     
