@@ -46,7 +46,6 @@ RUN set -ex \
 	&& apk upgrade \
 	&& rm -rf /var/cache/apk/*
 	
-RUN apk add --update zlib1g-dev\
 # =========
 # Configure
 # =========
