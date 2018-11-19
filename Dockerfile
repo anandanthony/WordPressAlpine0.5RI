@@ -48,11 +48,15 @@ RUN set -ex \
 	&& rm -rf /var/cache/apk/*
 	
 RUN apk --no-cache add zip
-# Configure PHP extensions
-RUN docker-php-ext-configure zip
     
 # Build and install PHP extensions
 RUN docker-php-ext-install zip
+
+RUN apk --update add \
+    php7-zip
+    
+COPY zip.ini /etc/php7/conf.d/zip.ini
+
 # =========
 # Configure
 # =========
