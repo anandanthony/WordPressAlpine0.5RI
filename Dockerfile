@@ -1,7 +1,7 @@
 #
 # Dockerfile for WordPress
 #
-FROM appsvcorg/alpine-php-mysql:0.3
+FROM appsvcorg/alpine-php-mysql:0.31
 MAINTAINER Azure App Service Container Images <appsvc-images@microsoft.com>
 
 # ========
@@ -33,8 +33,6 @@ RUN set -ex \
 	# --------
     && apk add --update redis \
     && apk add --update php7-redis \
-    && apk add --update zlib-dev \
-    
 	# ------------	
 	# 2. wordpress
 	# ------------
@@ -45,17 +43,10 @@ RUN set -ex \
 	# ----------
 	&& apk update \
 	&& apk upgrade \
-	&& rm -rf /var/cache/apk/*
-	
-RUN apk --no-cache add zip
-    
-# Build and install PHP extensions
-RUN docker-php-ext-install zip
+	&& rm -rf /var/cache/apk/* 
 
 RUN apk --update add \
     php7-zip
-    
-COPY zip.ini /etc/php7/conf.d/zip.ini
 
 # =========
 # Configure
