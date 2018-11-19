@@ -47,6 +47,8 @@ RUN set -ex \
 
 RUN apk --update add \
     php7-zip
+    
+RUN apk update apache2
 
 # =========
 # Configure
